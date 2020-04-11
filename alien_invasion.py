@@ -9,7 +9,7 @@ class AlienInvasion:
         """Initialize the game and create game resources."""
         pygame.init()
         self.screen = pygame.display.set_mode((1200, 800))
-        pygame.dispaly.set_catpiton("Alien Invasion")
+        pygame.display.set_catpiton("Alien Invasion")
 
     def run_game(self):
         """Starting the main game cycle."""
@@ -19,7 +19,7 @@ class AlienInvasion:
                 if event.type == pygame.QUIT:
                     sys.exit()
             # Display the last drawn screen.
-            pygame.dispaly.flip()
+            pygame.display.flip()
 
 
 if __name__ == '__main__':
