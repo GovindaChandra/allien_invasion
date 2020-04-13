@@ -6,7 +6,6 @@ from ship import Ship
 
 class AlienInvasion:
     """Class to manage the resources and behavior of the game."""
-
     def __init__(self):
         """Initialize the game and create game resources."""
         pygame.init()
@@ -19,16 +18,21 @@ class AlienInvasion:
     def run_game(self):
         """Starting the main game cycle."""
         while True:
-            # Tracking keyboard and mouse events.
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    sys.exit()
+            self._check_events()
+            self._update_screen()
 
-            # The screen is redrawn every time the loop passes
-            self.screen.fill(self.settings.bg_color)
-            self.ship.blitime()
-            # Display the last drawn screen.
-            pygame.display.flip()
+    def _check_events(self):
+        """Handles keystrokes and mouse events"""
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
+
+    def _update_screen(self):
+        """Update images on the screen and displays a new screen"""
+        self.screen.fill(self.settings.bg_color)
+        self.ship.blitime()
+        # Display the last drawn screen.
+        pygame.display.flip()
 
 
 if __name__ == '__main__':
