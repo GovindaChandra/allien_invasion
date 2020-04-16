@@ -17,6 +17,7 @@ class Ship:
 
         # Each new ship appears at the bottom of the screen
         self.rect.midbottom = self.screen_rect.midbottom
+
         # Save x - coordinate of the ship
         self.x = float(self.rect.x)
 
@@ -25,6 +26,7 @@ class Ship:
 
     def update(self):
         """Update position the ship"""
+
         if self.moving_right and self.rect.right < self.screen_rect.right:
             self.x += self.settings.ship_speed
         if self.moving_left and self.rect.left > 0:
@@ -33,4 +35,5 @@ class Ship:
 
     def blitme(self):
         """Draws the ship in the current position"""
+
         self.screen.blit(self.image, self.rect)
