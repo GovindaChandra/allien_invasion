@@ -32,12 +32,7 @@ class AlienInvasion:
         while True:
             self._check_events()
             self.ship.update()
-            self.bullets.update()
-            # Remove invisible bullets
-            for bullet in self.bullets.copy():
-                if bullet.rect.bottom <= 0:
-                    self.bullets.remove(bullet)
-            print(len(self.bullets))
+            self._update_bullets()
             self._update_screen()
 
     def _check_events(self):
@@ -50,6 +45,18 @@ class AlienInvasion:
                 self._check_keydown_events(event)
             elif event.type == pygame.KEYUP:
                 self._check_keyup_events(event)
+
+    def _update_bullets(self):
+        """Update bullets position and remove invisible"""
+
+        # Update position bullets
+        self.bullets.update()
+
+        # Remove invisible bullets
+        for bullet in self.bullets.copy():
+            if bullet.rect.bottom <= 0:
+                self.bullets.remove(bullet)
+        print(len(self.bullets))
 
     def _check_keydown_events(self, event):
         """React to key press"""
