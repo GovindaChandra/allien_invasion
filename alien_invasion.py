@@ -1,5 +1,4 @@
 import sys
-import random
 import pygame
 from settings import Settings
 from ship import Ship
@@ -135,4 +134,3 @@ if __name__ == '__main__':
     # Create an instance and launch the game.
     ai = AlienInvasion()
     ai.run_game()
-
