@@ -64,6 +64,9 @@ class AlienInvasion:
 
         # Checking for aliens hits
         collisions = pygame.sprite.groupcollide(self.bullets, self.aliens, True, True)
+        if not self.aliens:
+            self.bullets.empty()
+            self._create_fleet()
 
     def _check_keydown_events(self, event):
         """React to key press"""
